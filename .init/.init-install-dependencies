@@ -1,0 +1,4 @@
+{
+    "command": "npm install",
+    "working_directory": "/home/kavia/workspace/code-generation/ping-pong-league-manager-129231/ping_pong_frontend"
+}
