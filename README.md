@@ -1,1 +1,3 @@
-# ping-pong-league-manager-129231
+# Project Repository
+
+This is the initial README file for the project.
