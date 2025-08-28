@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Alert, Button, Card, Container, Input } from '../components/UI';
-import Api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
+/**
+ * DUMMY AUTH REGISTER
+ * Uses AuthContext.register to create a new user in localStorage and sign in.
+ */
 export default function Register() {
-  const { login } = useAuth();
+  const { register } = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({ username: '', email: '', password: '' });
   const [submitting, setSubmitting] = useState(false);
@@ -18,9 +21,8 @@ export default function Register() {
     setError('');
     setSubmitting(true);
     try {
-      const res = await Api.register(form);
-      const { token, user } = res;
-      login(token, user);
+      // Dummy register: no API call
+      await Promise.resolve(register(form));
       navigate('/');
     } catch (err) {
       setError(err.message || 'Registration failed');

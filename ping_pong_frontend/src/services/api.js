@@ -42,15 +42,20 @@ async function http(path, { method = 'GET', body, token, headers } = {}) {
 
 // PUBLIC_INTERFACE
 export const Api = {
-  /** Registers a new user */
+  /**
+   * NOTE: In dummy auth mode, these auth endpoints are NOT used.
+   * They remain for future backend integration.
+   */
+
+  /** Registers a new user (backend mode only) */
   // PUBLIC_INTERFACE
   register: (payload) => http('/auth/register', { method: 'POST', body: payload }),
 
-  /** Logs in and returns token + user */
+  /** Logs in and returns token + user (backend mode only) */
   // PUBLIC_INTERFACE
   login: (payload) => http('/auth/login', { method: 'POST', body: payload }),
 
-  /** Returns current profile by token */
+  /** Returns current profile by token (backend mode only) */
   // PUBLIC_INTERFACE
   me: (token) => http('/auth/me', { headers: {}, token }),
 

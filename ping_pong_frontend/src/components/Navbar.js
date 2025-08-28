@@ -4,6 +4,9 @@ import { theme, appTitle } from '../theme';
 import { Button, Container } from './UI';
 import { useAuth } from '../context/AuthContext';
 
+/**
+ * Navbar supports dummy auth mode (no backend). It reads user from AuthContext.
+ */
 export default function Navbar() {
   const { token, user, logout } = useAuth();
   const location = useLocation();

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Alert, Button, Card, Container, Input } from '../components/UI';
-import Api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
+/**
+ * DUMMY AUTH LOGIN
+ * Uses AuthContext.login(email, password) which validates against localStorage users.
+ */
 export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -18,9 +21,8 @@ export default function Login() {
     setError('');
     setSubmitting(true);
     try {
-      const res = await Api.login(form);
-      const { token, user } = res;
-      login(token, user);
+      // Dummy login: no API call
+      await Promise.resolve(login(form.email, form.password));
       navigate('/');
     } catch (err) {
       setError(err.message || 'Login failed');
